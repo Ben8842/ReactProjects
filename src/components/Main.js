@@ -3,6 +3,10 @@ import { Switch, Route } from 'react-router-dom'
 import Home from './Home'
 import Roster from './Roster'
 import Schedule from './Schedule'
+import Temperature from './Temperature'
+import Clock from './Clock'
+import Warning from './Warning'
+import Helloreact from './Helloreact'
 
 // The Main component renders one of the three provided
 // Routes (provided that one matches). Both the /roster
@@ -13,8 +17,11 @@ const Main = () => (
   <main>
     <Switch>
       <Route exact path='/' component={Home}/>
-      <Route path='/roster' component={Roster}/>
-      <Route path='/schedule' component={Schedule}/>
+
+      <Route path='/temperature' component={Temperature}/>
+      <Route path='/clock' component={Clock}/>
+      <Route path='/warning' component={Warning}/>
+      <Route path='/helloreact' component={Helloreact}/>
     </Switch>
   </main>
 )
