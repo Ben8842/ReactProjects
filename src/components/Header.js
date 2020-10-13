@@ -16,6 +16,8 @@ const Header = () => (
         <li><Link to='/pizza'>Pizza</Link></li>
         <li><Link to='/flavorform'>FlavorForm</Link></li>
         <li><Link to='/todo'>todo</Link></li>
+        <li><Link to='/login'>Log In project</Link></li>
+        <li><Link to='/game'>Game</Link></li>
         
       </ul>
     </nav>

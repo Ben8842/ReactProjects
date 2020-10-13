@@ -8,6 +8,8 @@ import Warning from './Warning'
 import Helloreact from './Helloreact'
 import FlavorForm from './flavorform'
 import todo from '../todofolder/todo.js'
+import LoginControl from './login.js'
+import Game from './tiktaktoe/game.js'
 
 // The Main component renders one of the three provided
 // Routes (provided that one matches). Both the /roster
@@ -26,6 +28,8 @@ const Main = () => (
       <Route path='/pizza' component={Pizza}/>
       <Route path='/flavorform' component={FlavorForm}/>
       <Route path='/todo' component={todo}/>
+      <Route path='/login' component={LoginControl}/>
+      <Route path='/game' component={Game}/>
 
     </Switch>
   </main>
