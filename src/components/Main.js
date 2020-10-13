@@ -1,12 +1,13 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Home from './Home'
-import Roster from './Roster'
-import Schedule from './Schedule'
+import Pizza from '../pizzacomponents/pizza/Pizza.js'
 import Temperature from './Temperature'
 import Clock from './Clock'
 import Warning from './Warning'
 import Helloreact from './Helloreact'
+import FlavorForm from './flavorform'
+import todo from '../todofolder/todo.js'
 
 // The Main component renders one of the three provided
 // Routes (provided that one matches). Both the /roster
@@ -22,6 +23,10 @@ const Main = () => (
       <Route path='/clock' component={Clock}/>
       <Route path='/warning' component={Warning}/>
       <Route path='/helloreact' component={Helloreact}/>
+      <Route path='/pizza' component={Pizza}/>
+      <Route path='/flavorform' component={FlavorForm}/>
+      <Route path='/todo' component={todo}/>
+
     </Switch>
   </main>
 )
