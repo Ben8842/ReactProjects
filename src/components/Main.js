@@ -10,6 +10,9 @@ import FlavorForm from './flavorform'
 import todo from '../todofolder/todo.js'
 import LoginControl from './login.js'
 import Game from './tiktaktoe/game.js'
+import SignIn from './SignIn'
+import Toggle from './toggle'
+
 
 // The Main component renders one of the three provided
 // Routes (provided that one matches). Both the /roster
@@ -30,6 +33,9 @@ const Main = () => (
       <Route path='/todo' component={todo}/>
       <Route path='/login' component={LoginControl}/>
       <Route path='/game' component={Game}/>
+      <Route path='/SignIn' component={SignIn}/>
+      <Route path='/toggle' component={Toggle}/>
+     
 
     </Switch>
   </main>
