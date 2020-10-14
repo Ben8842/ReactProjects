@@ -12,6 +12,7 @@ import LoginControl from './login.js'
 import Game from './tiktaktoe/game.js'
 import SignIn from './SignIn'
 import Toggle from './toggle'
+import FilterableProductTable from './thinkinginreact'
 
 
 // The Main component renders one of the three provided
@@ -35,6 +36,7 @@ const Main = () => (
       <Route path='/game' component={Game}/>
       <Route path='/SignIn' component={SignIn}/>
       <Route path='/toggle' component={Toggle}/>
+      <Route path='/thinkinginreact' component={FilterableProductTable}/>
      
 
     </Switch>
