@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom'
 
 // The Header creates links that can be used to navigate
 // between routes.
-let check = 'true';
-let notcheck = 'false';
+
+
+
 const Header = () => (
   <header>
     <h2>List of React Projects</h2>
@@ -23,7 +24,7 @@ const Header = () => (
         <li><Link to='/login' target="_blank">Log In project</Link></li>
         <li><Link to='/game' target="_blank">Game - TikTakToe</Link></li>
         <li><Link to='/SignIn' target="_blank">SignIn - simple local storage example</Link></li>
-        <li><Link to='/thinkinginreact' target="_blank">Thinking in React</Link></li>
+        <li><Link to='/thinkinginreact' target="_blank">thinking in react</Link></li>
         
         
       </ul>

@@ -1,4 +1,4 @@
-import React from 'react';
+/*import React from 'react';
 
 
 class ProductCategoryRow extends React.Component {
@@ -168,11 +168,12 @@ const PRODUCTS = [
   {category: 'Electronics', price: '$199.99', stocked: true, name: 'Nexus 7'}
 ];
 
-const thinkinginreact = <FilterableProductTable products={PRODUCTS} />
+*/
+//const thinkinginreact = <FilterableProductTable products={PRODUCTS} />;
 /*
   ReactDOM.render(
     <FilterableProductTable products={PRODUCTS} />,
     document.getElementById('root')
   );*/
 
-export default FilterableProductTable;
+//export default FilterableProductTable;
