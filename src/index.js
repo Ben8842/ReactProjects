@@ -2,15 +2,47 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
+import Clock from "./components/Clock";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 
-ReactDOM.render(
+
+
+const element = (
   <BrowserRouter>
     <App />
-  </BrowserRouter>,
+  </BrowserRouter>
+)
+
+ReactDOM.render(
+ element,
   document.getElementById("root")
 );
+
+
+
+
+
+
+
+
+
+
+function tick() {
+  const element = (
+    <div>
+      <h1>Hello, world! </h1>
+      <h2>It is {new Date().toLocaleTimeString()}.</h2>
+    </div>
+  );
+  ReactDOM.render(element, document.getElementById('roots'));
+}
+
+
+
+setInterval(tick, 1000);
+
+
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

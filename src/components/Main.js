@@ -21,13 +21,16 @@ import FilterableProductTable from './thinkinginreact'
 // and /schedule routes will match any pathname that starts
 // with /roster or /schedule. The / route will only match
 // when the pathname is exactly the string "/"
+setInterval(Clock, 1000);
 const Main = () => (
   <main>
     <Switch>
       <Route exact path='/' component={Home}/>
 
       <Route path='/temperature' component={Temperature}/>
-      <Route path='/clock' component={Clock}/>
+      <Route path='/clock' component={Clock} render={() => (
+        <h1>testing</h1>
+      )}/>
       <Route path='/warning' component={Warning}/>
       <Route path='/helloreact' component={Helloreact}/>
       <Route path='/pizza' component={Pizza}/>
