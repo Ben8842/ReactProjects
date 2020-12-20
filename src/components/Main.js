@@ -2,6 +2,9 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Home from "./Home";
 import LandingPage from "./LandingPage";
+import UserPage from "./UserPage";
+import Scores from "./Scores";
+import SignUp from "./SignUp";
 
 //import FilterableProductTable from './thinkinginreact'
 
@@ -17,6 +20,9 @@ const Main = () => (
       <Route exact path="/" component={Home} />
 
       <Route path="/LandingPage" component={LandingPage} />
+      <Route path="/UserPage" component={UserPage} />
+      <Route path="/Scores" component={Scores} />
+      <Route path="/SignUp" component={SignUp} />
     </Switch>
   </main>
 );

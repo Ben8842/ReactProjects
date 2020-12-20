@@ -16,6 +16,15 @@ const Header = () => (
         <li>
           <Link to="/LandingPage">Landing Page</Link>
         </li>
+        <li>
+          <Link to="/UserPage">UserPage</Link>
+        </li>
+        <li>
+          <Link to="/Scores">Scores</Link>
+        </li>
+        <li>
+          <Link to="/SignUp">Sign Up</Link>
+        </li>
       </ul>
     </nav>
   </header>
