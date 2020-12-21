@@ -31,6 +31,9 @@ const Header = () => (
         <li>
           <Link to="/login">Log In</Link>
         </li>
+        <li>
+          <Link to="/trivia">TRIVIA</Link>
+        </li>
       </ul>
     </nav>
   </header>

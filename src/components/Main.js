@@ -7,6 +7,7 @@ import Scores from "./Scores";
 import SignUp from "./SignUp";
 import create from "./Create";
 import login from "./login";
+import trivia from "./trivia";
 
 //import FilterableProductTable from './thinkinginreact'
 
@@ -26,6 +27,7 @@ const Main = () => (
       <Route path="/SignUp" component={SignUp} />
       <Route path="/Create" component={create} />
       <Route path="/login" component={login} />
+      <Route path="/trivia" component={trivia} />
     </Switch>
   </main>
 );
