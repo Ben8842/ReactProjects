@@ -1,3 +1,13 @@
+#trivia {
+  text-align: center;
+  color: red;
+  border-style: dotted;
+  border-color: blue;
+  border-width: thick;
+  padding: 25px;
+  margin: 25px;
+}
+
 .App {
   text-align: center;
 }

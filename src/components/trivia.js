@@ -7,6 +7,7 @@ class trivia extends Component {
       address: "",
       isLoaded: false,
       triviaData: [],
+      show: false,
     };
   }
 
@@ -21,17 +22,30 @@ class trivia extends Component {
       });
   }
 
+  handleClcik() {
+    this.setState({ show: true });
+  }
+
   render() {
-    var { triviaData, isLoaded } = this.state;
+    var { triviaData, isLoaded, show } = this.state;
     console.log(triviaData.results);
+    const questionBox = (
+      <div id="trivia">
+        <p id="trivia">QUESTION BOX</p>
+        <p>question placeholder</p>
+        <p id="trivia">ANSWER BOX</p>
+        <p>answer placeholder</p>
+      </div>
+    );
     if (!isLoaded) {
       return <div>Loading...</div>;
     } else {
       return (
         <body>
-          <button>Start Trivia</button>
+          <button onClick={() => this.handleClcik()}>Start Trivia</button>
 
           <p>Question</p>
+          {isLoaded && show ? questionBox : null}
 
           <p>Enter your Answer</p>
 
