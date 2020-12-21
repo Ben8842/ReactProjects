@@ -5,6 +5,8 @@ import LandingPage from "./LandingPage";
 import UserPage from "./UserPage";
 import Scores from "./Scores";
 import SignUp from "./SignUp";
+import create from "./Create";
+import login from "./login";
 
 //import FilterableProductTable from './thinkinginreact'
 
@@ -18,11 +20,12 @@ const Main = () => (
   <main>
     <Switch>
       <Route exact path="/" component={Home} />
-
       <Route path="/LandingPage" component={LandingPage} />
       <Route path="/UserPage" component={UserPage} />
       <Route path="/Scores" component={Scores} />
       <Route path="/SignUp" component={SignUp} />
+      <Route path="/Create" component={create} />
+      <Route path="/login" component={login} />
     </Switch>
   </main>
 );

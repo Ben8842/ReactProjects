@@ -1,11 +1,8 @@
 import React from "react";
 
-const SignUp = () => (
+const login = () => (
   <body>
-    <h1>Sign Up Here </h1>
-    <p>Name</p>
-
-    <p>Email</p>
+    <p>Log In Here </p>
 
     <p>Username</p>
 
@@ -15,4 +12,4 @@ const SignUp = () => (
   </body>
 );
 
-export default SignUp;
+export default login;
