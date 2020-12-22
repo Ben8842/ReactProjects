@@ -64,19 +64,25 @@ class trivia extends Component {
       var thirdAnswer = atob(triviaData.results[count].incorrect_answers[1]);
       var fourthAnswer = atob(triviaData.results[count].incorrect_answers[2]);
 
-      console.log(firstAnswer);
+      function shuffle(arry) {
+        arry.sort(() => Math.random() - 0.5);
+      }
+      let answerArr = [firstAnswer, secondAnswer, thirdAnswer, fourthAnswer];
+      shuffle(answerArr);
+      const tAnswers = (
+        <div>
+          <button class="button button1">A. {answerArr[0]}</button>
+          <button class="button button1">B. {answerArr[1]}</button>
+          <button class="button button1">C. {answerArr[2]}</button>
+          <button class="button button1" onClick={() => this.nextTrivia()}>
+            D. {answerArr[3]}
+          </button>
+        </div>
+      );
+      return tAnswers;
     } else {
       console.log("waiting");
     }
-    const tAnswers = (
-      <div>
-        <p>A. {firstAnswer}</p>
-        <p>B. {secondAnswer}</p>
-        <p>C. {thirdAnswer}</p>
-        <p>D. {fourthAnswer}</p>
-      </div>
-    );
-    return tAnswers;
   }
 
   render() {
@@ -107,8 +113,15 @@ class trivia extends Component {
           <p>Enter your Answer</p>
 
           <button>SUBMIT</button>
+        </body>
+      );
+    }
+  }
+}
 
-          <ul>
+export default trivia;
+
+/*<ul>
             DATA HAS BEEN LOADED
             {triviaData.results.map((item) => (
               <li key={item.id}>
@@ -117,11 +130,4 @@ class trivia extends Component {
               </li>
             ))}
             ;
-          </ul>
-        </body>
-      );
-    }
-  }
-}
-
-export default trivia;
+          </ul>*/
