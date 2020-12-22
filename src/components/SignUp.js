@@ -1,9 +1,10 @@
 import React from "react";
 
 const SignUp = () => (
-  <body>
+  <div>
     <h1>Sign Up Here </h1>
-    <p>Name</p>
+
+    <input type="text" name="name" placeholder="NAME" />
 
     <p>Email</p>
 
@@ -12,7 +13,7 @@ const SignUp = () => (
     <p>Password</p>
 
     <button>SUBMIT</button>
-  </body>
+  </div>
 );
 
 export default SignUp;
