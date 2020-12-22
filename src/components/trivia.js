@@ -39,6 +39,19 @@ class trivia extends Component {
     });
   }
 
+  isCorrect(ans) {
+    var { triviaData, count } = this.state;
+    if (atob(triviaData.results[count].correct_answer) === ans) {
+      console.log("CORRECT");
+    } else {
+      console.log("SO MUCH WRONG");
+      console.log(atob(triviaData.results[count].correct_answer));
+      console.log(ans);
+    }
+
+    console.log("hello there");
+  }
+
   displayTrivia() {
     var { isLoaded, triviaData, count } = this.state;
 
@@ -71,10 +84,28 @@ class trivia extends Component {
       shuffle(answerArr);
       const tAnswers = (
         <div>
-          <button class="button button1">A. {answerArr[0]}</button>
-          <button class="button button1">B. {answerArr[1]}</button>
-          <button class="button button1">C. {answerArr[2]}</button>
-          <button class="button button1" onClick={() => this.nextTrivia()}>
+          <button
+            class="button button1"
+            onClick={() => this.isCorrect(answerArr[0])}
+          >
+            A. {answerArr[0]}
+          </button>
+          <button
+            class="button button1"
+            onClick={() => this.isCorrect(answerArr[1])}
+          >
+            B. {answerArr[1]}
+          </button>
+          <button
+            class="button button1"
+            onClick={() => this.isCorrect(answerArr[2])}
+          >
+            C. {answerArr[2]}
+          </button>
+          <button
+            class="button button1"
+            onClick={() => this.isCorrect(answerArr[3])}
+          >
             D. {answerArr[3]}
           </button>
         </div>
@@ -104,9 +135,14 @@ class trivia extends Component {
     } else {
       return (
         <body>
-          <button onClick={() => this.handleClick()}>Start Trivia</button>
-          <button onClick={() => this.nextTrivia()}>Next Question</button>
-
+          <div id="trivia">
+            <button class="button button1" onClick={() => this.handleClick()}>
+              Start Trivia
+            </button>
+            <button class="button button1" onClick={() => this.nextTrivia()}>
+              Next Question
+            </button>
+          </div>
           <p>Question</p>
           {isLoaded && show ? questionBox : null}
 

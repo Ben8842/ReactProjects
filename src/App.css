@@ -27,6 +27,7 @@
   background-color: lightblue;
   color: black;
   border: 8px solid #008cba;
+  font: 35px;
 }
 
 .button1:hover {
