@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 var listCatsId = [
   9,
@@ -123,13 +124,7 @@ class trivia extends Component {
   }
 
   isCorrect(ans) {
-    var {
-      triviaData,
-      count,
-      isCorrectChoice,
-      isWrongChoice,
-      correctCount,
-    } = this.state;
+    var { triviaData, count } = this.state;
     if (atob(triviaData.results[count].correct_answer) === ans) {
       this.incrementCorrectCount();
       this.setState({
@@ -225,10 +220,26 @@ class trivia extends Component {
   }
 
   handleCatChoice(ids) {
+    this.setState({ isLoaded: false });
     var caty = listCatsId.indexOf(ids);
     var finalChoice = listCats[caty];
     console.log(finalChoice);
-    return finalChoice;
+
+    fetch(
+      "https://opentdb.com/api.php?amount=15&category=" +
+        ids +
+        "&type=multiple&encode=base64"
+    )
+      .then((res) => res.json())
+      .then((json) => {
+        this.setState({
+          isLoaded: true,
+          triviaData: json,
+          show: true,
+          startButton: false,
+          categoryDisplay: false,
+        });
+      });
   }
 
   render() {
@@ -395,11 +406,24 @@ class trivia extends Component {
       </div>
     );
 
+    const superHeader = (
+      <div id="Header">
+        <button class="button button4">
+          <Link to="/login">Log In</Link>
+        </button>
+
+        <button class="button button4" onClick={null}>
+          <Link to="/SignUp">Sign Up</Link>
+        </button>
+      </div>
+    );
+
     if (!isLoaded) {
       return <div>Loading...</div>;
     } else {
       return (
         <body>
+          {superHeader}
           {categoryDisplay ? categoryChoices : null}
           {startButton ? triviaStartButton : null}
           {isLoaded && show ? runningScore : null}

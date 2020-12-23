@@ -1,3 +1,8 @@
+#Header {
+  text-align: right;
+  padding: 25px;
+}
+
 #trivia {
   text-align: center;
   color: darkgreen;
@@ -111,6 +116,23 @@
 }
 
 .button3:hover {
+  background-color: darkgreen;
+  color: white;
+  border-radius: 50px;
+  font-weight: bold;
+}
+
+.button4 {
+  background-color: lightgreen;
+  color: black;
+  border: 8px solid darkgreen;
+  font: 15px;
+  font-size: 15px;
+  border-radius: 50px;
+  font-weight: bold;
+}
+
+.button4:hover {
   background-color: darkgreen;
   color: white;
   border-radius: 50px;
