@@ -10,6 +10,42 @@
   background-color: yellow;
 }
 
+#tab {
+  text-align: center;
+  color: darkgreen;
+  border-style: dashed;
+  border-color: blue;
+  border-width: thick;
+  padding: 25px;
+  margin: 25px;
+  font-size: 25px;
+  background-color: yellow;
+}
+
+#correct {
+  text-align: center;
+  color: black;
+  border-style: dotted;
+  border-color: darkgreen;
+  border-width: thick;
+  padding: 25px;
+  margin: 25px;
+  font-size: 40px;
+  background-color: lightgreen;
+}
+
+#wrong {
+  text-align: center;
+  color: white;
+  border-style: double;
+  border-color: darkred;
+  border-width: thick;
+  padding: 25px;
+  margin: 25px;
+  font-size: 40px;
+  background-color: red;
+}
+
 .button {
   border: none;
   color: white;
@@ -32,6 +68,30 @@
 
 .button1:hover {
   background-color: #008cba;
+  color: white;
+}
+
+.button2 {
+  background-color: red;
+  color: black;
+  border: 8px solid darkred;
+  font: 35px;
+}
+
+.button2:hover {
+  background-color: black;
+  color: white;
+}
+
+.button3 {
+  background-color: lightgreen;
+  color: black;
+  border: 8px solid darkgreen;
+  font: 35px;
+}
+
+.button3:hover {
+  background-color: darkgreen;
   color: white;
 }
 
