@@ -8,6 +8,8 @@
   margin: 25px;
   font-size: 40px;
   background-color: yellow;
+  border-radius: 50px;
+  font-weight: bold;
 }
 
 #tab {
@@ -20,6 +22,8 @@
   margin: 25px;
   font-size: 25px;
   background-color: yellow;
+  border-radius: 50px;
+  font-weight: bold;
 }
 
 #correct {
@@ -32,6 +36,8 @@
   margin: 25px;
   font-size: 40px;
   background-color: lightgreen;
+  border-radius: 50px;
+  font-weight: bold;
 }
 
 #wrong {
@@ -44,6 +50,8 @@
   margin: 25px;
   font-size: 40px;
   background-color: red;
+  border-radius: 50px;
+  font-weight: bold;
 }
 
 .button {
@@ -57,6 +65,8 @@
   margin: 4px 2px;
   transition-duration: 0.9s;
   cursor: pointer;
+  border-radius: 50px;
+  font-weight: bold;
 }
 
 .button1 {
@@ -64,11 +74,15 @@
   color: black;
   border: 8px solid #008cba;
   font: 35px;
+  border-radius: 50px;
+  font-weight: bold;
 }
 
 .button1:hover {
   background-color: #008cba;
   color: white;
+  border-radius: 50px;
+  font-weight: bold;
 }
 
 .button2 {
@@ -76,11 +90,15 @@
   color: black;
   border: 8px solid darkred;
   font: 35px;
+  border-radius: 50px;
+  font-weight: bold;
 }
 
 .button2:hover {
   background-color: black;
   color: white;
+  border-radius: 50px;
+  font-weight: bold;
 }
 
 .button3 {
@@ -88,11 +106,15 @@
   color: black;
   border: 8px solid darkgreen;
   font: 35px;
+  border-radius: 50px;
+  font-weight: bold;
 }
 
 .button3:hover {
   background-color: darkgreen;
   color: white;
+  border-radius: 50px;
+  font-weight: bold;
 }
 
 .App {

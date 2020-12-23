@@ -176,6 +176,7 @@ class trivia extends Component {
       function shuffle(arry) {
         arry.sort(() => Math.random() - 0.5);
       }
+
       let answerArr = [firstAnswer, secondAnswer, thirdAnswer, fourthAnswer];
       shuffle(answerArr);
       const tAnswers = (
@@ -212,6 +213,17 @@ class trivia extends Component {
     }
   }
 
+  returnHome() {
+    this.setState({
+      count: 1,
+      show: false,
+      startButton: true,
+      triviaDone: false,
+      correctCount: 0,
+    });
+    console.log("HOME");
+  }
+
   handleCatChoice(ids) {
     var caty = listCatsId.indexOf(ids);
     var finalChoice = listCats[caty];
@@ -239,7 +251,7 @@ class trivia extends Component {
       <div id="correct">
         <p id="correct">You got this question number {count} correct! </p>
         <p>{question}</p>
-        <p id="correct">! CELEBRATION !</p>
+        <p id="correct">DANCE PARTY !</p>
         <p>Continue to the next Question</p>
         <button class="button button3" onClick={() => this.nextTrivia()}>
           Next Question
@@ -281,6 +293,9 @@ class trivia extends Component {
         </p>
         <p id="trivia">Thank you so much for playing</p>
         <p>Try again soon!</p>
+        <button class="button button1" onClick={(e) => this.returnHome()}>
+          HOME
+        </button>
       </div>
     );
 
