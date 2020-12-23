@@ -1,5 +1,59 @@
 import React, { Component } from "react";
 
+var listCatsId = [
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19,
+  20,
+  21,
+  22,
+  23,
+  24,
+  25,
+  26,
+  27,
+  28,
+  29,
+  30,
+  31,
+  32,
+];
+
+var listCats = [
+  "General Knowledge",
+  "Entertainment: Books",
+  "Entertainment: Film",
+  "Entertainment: Music",
+  "Entertainment: Musicals & Theatres",
+  "Entertainment: Television",
+  "Entertainment: Video Games",
+  "Entertainment: Board Games",
+  "Science & Nature",
+  "Science: Computers",
+  "Science: Mathematics",
+  "Mythology",
+  "Sports",
+  "Geography",
+  "History",
+  "Politics",
+  "Art",
+  "Celebrities",
+  "Animals",
+  "Vehicles",
+  "Entertainment: Comics",
+  "Science: Gadgets",
+  "Entertainment: Japanese Anime & Manga",
+  "Entertainment: Cartoon & Animations",
+];
+
 class trivia extends Component {
   constructor(props) {
     super(props);
@@ -12,6 +66,12 @@ class trivia extends Component {
       isCorrectChoice: false,
       isWrongChoice: false,
       correctCount: 0,
+      startButton: true,
+      triviaDone: false,
+      category: 9,
+      categoryDisplay: false,
+      catsIsLoaded: false,
+      cats: [],
     };
   }
 
@@ -29,7 +89,17 @@ class trivia extends Component {
   }
 
   handleClick() {
-    this.setState({ show: true });
+    this.setState({
+      show: true,
+      startButton: false,
+    });
+  }
+
+  handleCat() {
+    this.setState({
+      startButton: false,
+      categoryDisplay: true,
+    });
   }
 
   nextTrivia() {
@@ -40,13 +110,15 @@ class trivia extends Component {
 
   incrementCount() {
     this.setState((state) => {
-      return { count: state.count + 1 };
+      if (state.count < 10) {
+        return { count: state.count + 1 };
+      } else return { triviaDone: true };
     });
   }
 
   incrementCorrectCount() {
     this.setState((state) => {
-      return { correctCount: state.count + 1 };
+      return { correctCount: state.correctCount + 1 };
     });
   }
 
@@ -140,6 +212,13 @@ class trivia extends Component {
     }
   }
 
+  handleCatChoice(ids) {
+    var caty = listCatsId.indexOf(ids);
+    var finalChoice = listCats[caty];
+    console.log(finalChoice);
+    return finalChoice;
+  }
+
   render() {
     var {
       triviaData,
@@ -149,8 +228,10 @@ class trivia extends Component {
       isCorrectChoice,
       isWrongChoice,
       correctCount,
+      startButton,
+      triviaDone,
+      categoryDisplay,
     } = this.state;
-    console.log(triviaData.results);
 
     const question = this.displayTrivia();
     const answer = this.displayTriviaA();
@@ -203,20 +284,112 @@ class trivia extends Component {
       </div>
     );
 
+    const categoryChoices = (
+      <div id="trivia">
+        <button class="button button1" onClick={() => this.handleCatChoice(9)}>
+          General Knowledge
+        </button>
+
+        <button class="button button1" onClick={() => this.handleCatChoice(10)}>
+          Books
+        </button>
+
+        <button class="button button1" onClick={() => this.handleCatChoice(11)}>
+          Film
+        </button>
+
+        <button class="button button1" onClick={() => this.handleCatChoice(12)}>
+          Music
+        </button>
+
+        <button class="button button1" onClick={() => this.handleCatChoice(14)}>
+          Television
+        </button>
+
+        <button class="button button1" onClick={() => this.handleCatChoice(15)}>
+          Video Games
+        </button>
+
+        <button class="button button1" onClick={() => this.handleCatChoice(16)}>
+          Board Games
+        </button>
+
+        <button class="button button1" onClick={() => this.handleCatChoice(17)}>
+          Nature
+        </button>
+
+        <button class="button button1" onClick={() => this.handleCatChoice(18)}>
+          Computers
+        </button>
+
+        <button class="button button1" onClick={() => this.handleCatChoice(19)}>
+          Mathematics
+        </button>
+
+        <button class="button button1" onClick={() => this.handleCatChoice(20)}>
+          Mythology
+        </button>
+
+        <button class="button button1" onClick={() => this.handleCatChoice(21)}>
+          Sports
+        </button>
+
+        <button class="button button1" onClick={() => this.handleCatChoice(22)}>
+          Geography
+        </button>
+
+        <button class="button button1" onClick={() => this.handleCatChoice(23)}>
+          History
+        </button>
+
+        <button class="button button1" onClick={() => this.handleCatChoice(24)}>
+          Politics
+        </button>
+
+        <button class="button button1" onClick={() => this.handleCatChoice(27)}>
+          Animals
+        </button>
+
+        <button class="button button1" onClick={() => this.handleCatChoice(28)}>
+          Vehicles
+        </button>
+
+        <button class="button button1" onClick={() => this.handleCatChoice(29)}>
+          Comics
+        </button>
+
+        <button class="button button1" onClick={() => this.handleCatChoice(31)}>
+          Anime
+        </button>
+
+        <button class="button button1" onClick={() => this.handleCatChoice(32)}>
+          Cartoons
+        </button>
+      </div>
+    );
+
+    const triviaStartButton = (
+      <div id="trivia">
+        <button class="button button1" onClick={() => this.handleClick()}>
+          Start Trivia
+        </button>
+
+        <button class="button button1" onClick={() => this.handleCat()}>
+          Choose Category
+        </button>
+      </div>
+    );
+
     if (!isLoaded) {
       return <div>Loading...</div>;
     } else {
       return (
         <body>
-          <div id="trivia">
-            <button class="button button1" onClick={() => this.handleClick()}>
-              Start Trivia
-            </button>
-
-            {isLoaded && show ? runningScore : null}
-          </div>
-          {count === 10 ? triviaComplete : null}
-          {isLoaded && show && !isCorrectChoice && !isWrongChoice
+          {categoryDisplay ? categoryChoices : null}
+          {startButton ? triviaStartButton : null}
+          {isLoaded && show ? runningScore : null}
+          {triviaDone ? triviaComplete : null}
+          {!triviaDone && isLoaded && show && !isCorrectChoice && !isWrongChoice
             ? questionBox
             : null}
           {isCorrectChoice ? celebration : null}
