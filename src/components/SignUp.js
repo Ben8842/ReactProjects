@@ -9,19 +9,20 @@ class signUp extends Component {
     this.state = {
       address: "",
       isLoaded: false,
-      email: null,
-      username: null,
-      password: null,
-      value: "",
+      email: "",
+      username: "",
+      password: "",
+      loggedIn: false,
     };
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+
     // this.closeModal = this.closeModal.bind(this);
   }
 
   submitSignUp() {
     console.log("helloSubmit");
     const { email, username, password } = this.state;
+    console.log(JSON.stringify({ email, username, password }));
     fetch("http://localhost:5000/users", {
       method: "POST", // *GET, POST, PUT, DELETE, etc.
       mode: "cors", // no-cors, *cors, same-origin
@@ -59,16 +60,9 @@ class signUp extends Component {
       });
   }
 
-  handleSubmit(event) {
-    alert("A name was submitted: " + this.state.value);
-    event.preventDefault();
-  }
-
   handleChange(event) {
     this.setState({
-      email: event.target.email,
-      username: event.target.username,
-      password: event.target.password,
+      [event.target.name]: event.target.value,
     });
   }
 
