@@ -155,13 +155,7 @@ class trivia extends Component {
   }
 
   displayTriviaA() {
-    var {
-      isLoaded,
-      triviaData,
-      count,
-      isCorrectChoice,
-      isWrongChoice,
-    } = this.state;
+    var { isLoaded, triviaData, count } = this.state;
     if (isLoaded) {
       var firstAnswer = atob(triviaData.results[count].correct_answer);
       var secondAnswer = atob(triviaData.results[count].incorrect_answers[0]);
@@ -244,7 +238,6 @@ class trivia extends Component {
 
   render() {
     var {
-      triviaData,
       isLoaded,
       show,
       count,
