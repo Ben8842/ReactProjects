@@ -12,6 +12,7 @@
     "react-scripts": "2.1.8",
     "react-simple-chatbot": "^0.6.1",
     "reactstrap": "^8.6.0",
+    "redux": "^4.0.5",
     "styled-components": "^5.2.0"
   },
   "scripts": {
@@ -33,6 +34,7 @@
   ],
   "devDependencies": {
     "gh-pages": "^2.0.1",
-    "react-router": "^5.2.0"
+    "react-router": "^5.2.0",
+    "redux-devtools": "^3.7.0"
   }
 }

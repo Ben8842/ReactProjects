@@ -13,6 +13,7 @@ class logIn extends Component {
       username: "",
       password: "",
       loggedin: false,
+      data: [],
     };
     this.handleChange = this.handleChange.bind(this);
 
@@ -20,7 +21,7 @@ class logIn extends Component {
   }
 
   submitLogIn() {
-    const { email, password } = this.state;
+    const { email, password, username } = this.state;
     fetch("http://localhost:5000/authenticate", {
       method: "POST", // *GET, POST, PUT, DELETE, etc.
       mode: "cors", // no-cors, *cors, same-origin
@@ -31,7 +32,7 @@ class logIn extends Component {
         // 'Content-Type': 'application/x-www-form-urlencoded',
       },
       referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ email, password, username }),
       // body data type must match "Content-Type" header
     })
       .then((res) => {
@@ -53,6 +54,8 @@ class logIn extends Component {
           // this.setState(data);
           this.setState({
             loggedin: true,
+            username: data.username,
+            data: data,
           });
         }
       });
@@ -63,13 +66,19 @@ class logIn extends Component {
       [event.target.name]: event.target.value,
     });
   }
-
+  git;
   render() {
-    var { loggedin, username } = this.state;
+    var { loggedin, username, data } = this.state;
 
     const logger = (
       <div id="trivia">
-        <h4>You are Logged in as {username} </h4>
+        <h4>You are Logged in as {username} ! </h4>
+
+        <button class="button button1">
+          <Link to={{ pathname: "/trivia", data: data }}>
+            Continue to Trivia Now!
+          </Link>
+        </button>
       </div>
     );
 
@@ -101,7 +110,11 @@ class logIn extends Component {
             />
           </div>
           <div>
-            <button class="button button1" onClick={() => this.submitLogIn()}>
+            <button
+              type="button"
+              class="button button1"
+              onClick={() => this.submitLogIn()}
+            >
               SUBMIT
             </button>
           </div>

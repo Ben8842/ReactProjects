@@ -73,10 +73,18 @@ class trivia extends Component {
       categoryDisplay: false,
       catsIsLoaded: false,
       cats: [],
+      isLoggedIn: false,
+      superUser: "",
     };
   }
 
   componentDidMount() {
+    const data = this.props.location.data;
+    if (data === undefined) {
+      this.setState({ isLoggedIn: false });
+    } else {
+      this.setState({ isLoggedIn: true, superUser: data.username });
+    }
     fetch(
       "https://opentdb.com/api.php?amount=15&category=30&type=multiple&encode=base64"
     )
@@ -247,6 +255,8 @@ class trivia extends Component {
       startButton,
       triviaDone,
       categoryDisplay,
+      isLoggedIn,
+      superUser,
     } = this.state;
 
     const question = this.displayTrivia();
@@ -305,6 +315,7 @@ class trivia extends Component {
 
     const categoryChoices = (
       <div id="trivia">
+        <h3>Choose a Category !</h3>
         <button class="button button1" onClick={() => this.handleCatChoice(9)}>
           General Knowledge
         </button>
@@ -389,12 +400,8 @@ class trivia extends Component {
 
     const triviaStartButton = (
       <div id="trivia">
-        <button class="button button1" onClick={() => this.handleClick()}>
-          Start Trivia
-        </button>
-
         <button class="button button1" onClick={() => this.handleCat()}>
-          Choose Category
+          Start Trivia
         </button>
       </div>
     );
@@ -410,13 +417,26 @@ class trivia extends Component {
         </button>
       </div>
     );
+    const superHeaderAuthentication = (
+      <div id="Header">
+        <button class="button button4">
+          <Link to="/Scores">View Your Scores</Link>
+        </button>
+
+        <button class="button button4" onClick={null}>
+          <Link to="/SignUp">Log Out</Link>
+        </button>
+        <h3>You are currently logged in as {superUser} </h3>
+      </div>
+    );
 
     if (!isLoaded) {
       return <div>Loading...</div>;
     } else {
       return (
         <body>
-          {superHeader}
+          {isLoggedIn && isLoaded ? superHeaderAuthentication : superHeader}
+
           {categoryDisplay ? categoryChoices : null}
           {startButton ? triviaStartButton : null}
           {isLoaded && show ? runningScore : null}
